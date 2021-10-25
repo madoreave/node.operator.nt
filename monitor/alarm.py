@@ -14,7 +14,7 @@ my_token = '1503237112:AAGQMIrsK_dJpmrp7ulET4g1b15E6rcXs5g'
 bot = telegram.Bot(token = my_token)
 HOSTNAME = subprocess.check_output("tail -n 1 ~/serverno",shell=True)
 
-ENGINE=commands.getoutput('~/node.operator.nt/monitor/checkEngine.sh')
+ENGINE=commands.getoutput('~/node.operator.nt/monitor/checkEngine.sh',shell=True)
 if len(ENGINE) ==0:
   bot.sendMessage(chat_id='-1001685894260', text=str(HOSTNAME)+" ENGINE off");
   exit()
