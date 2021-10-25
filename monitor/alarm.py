@@ -25,11 +25,14 @@ ERROR_TIME_UNIX = subprocess.check_output("tail -n 1 ~/node.operator.nt/logs/ele
 SYNC=subprocess.check_output("~/node.operator.nt/scripts/checkSync.sh| grep TIME_DIFF | awk '{print $4}' | tr '[:upper:]' '[:lower:]'",shell=True);
 
 ERROR_TIME = datetime.utcfromtimestamp(int(ERROR_TIME_UNIX)).strftime('%Y-%m-%d %H:%M:%S')
-SYNCalarm = "100"
+SYNCalarm = "-100"
+SYNCalarm1 = 0
 
 if int(VALIDATION) == 0:
   bot.sendMessage(chat_id='-1001685894260', text=str(HOSTNAME)+" Not Validating "+str(ERROR_TIME));
 if int(ELECTION) == 0:
   bot.sendMessage(chat_id='-1001225148721', text=str(HOSTNAME)+" Not in Election "+str(ERROR_TIME));
-if int(SYNC) > int(SYNCalarm):
+if int(SYNC) < int(SYNCalarm):
+  bot.sendMessage(chat_id='-1001685894260', text=str(HOSTNAME)+" SYNC off, SYNC:"+str(SYNC));
+if int(SYNC) > int(SYNCalarm1):
   bot.sendMessage(chat_id='-1001685894260', text=str(HOSTNAME)+" SYNC off, SYNC:"+str(SYNC));
