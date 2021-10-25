@@ -9,8 +9,6 @@ current_time=$(echo " CURRENT_TIME: ${CURRENT_UNIXTIME};")
 election_start_time=$(echo " ELECTION_START_TIME: ${CURRENT_ELECTION_SINCE_UNIXTIME};")
 election_end_time=$(echo " ELECTION_END_TIME: ${CURRENT_ELECTION_UNTIL_UNIXTIME};")
 
-validator_addr=$(cat ~/ton-keys/${hostname}.addr)
-
 after_election_about_two_half=$((${CURRENT_UNIXTIME} - ${CURRENT_ELECTION_UNTIL_UNIXTIME}))
 
 if ~/node.operator.nt/scripts/myElection.sh | grep -q 'CURRENTLY NOT VALIDATING'; then
