@@ -2,8 +2,7 @@
 . ~/node.operator.nt/configs/scripts.config
 
 if [ ${CURRENT_UNIXTIME} -gt $((${CURRENT_ELECTION_SINCE_UNIXTIME} + 1200)) -a ${CURRENT_UNIXTIME} -lt ${CURRENT_ELECTION_UNTIL_UNIXTIME} ]; then
-    crontab -r
-    sleep $((RANDOM % 600))
+
     if ~/node.operator.nt/scripts/myElection.sh | grep -q 'SUBMISSION CONFIRMED'; then
         exit
     else
