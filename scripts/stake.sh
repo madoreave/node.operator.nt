@@ -15,4 +15,4 @@ if [ ${CURRENT_UNIXTIME} -gt $((${CURRENT_ELECTION_SINCE_UNIXTIME} + 1200)) -a $
             ~/node.operator.nt/scripts/participate.sh
         fi
     fi
-    
+fi
