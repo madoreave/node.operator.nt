@@ -1,3 +1,4 @@
+#!/bin/bash
 . ~/node.operator.nt/configs/scripts.config
 
 if [ ${CURRENT_UNIXTIME} -gt $((${CURRENT_ELECTION_SINCE_UNIXTIME} + 1200)) -a ${CURRENT_UNIXTIME} -lt ${CURRENT_ELECTION_UNTIL_UNIXTIME} ]; then
