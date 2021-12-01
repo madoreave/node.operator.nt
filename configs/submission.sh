@@ -1,5 +1,5 @@
 #!/bin/bash
-fuction CHECK_STAKE {
+function CHECK_STAKE {
 SUBMISSION_CHECK='50000'
 IN='<<<'
 OUT='>>>'
