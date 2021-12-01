@@ -38,7 +38,7 @@ if [ "$STAKE_SUBMITTED" == 1 ]; then
   STAKE=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $5}') && STAKE=${STAKE%.*}
     if [ "$CHECK_ELECTOR" = "$ELECTOR" ] && [ "$CHECK_IN_OUT" = "$OUT" ] && [ "$STAKE" > "$SUBMISSION_CHECK" ]; then
          STAKE=$((STAKE * NANO))
-         CHECK_ELECTION_SUBMISSION=$TX_AMOUNT
+         CHECK_ELECTION_SUBMISSION=$STAKE
          
     fi
   done
