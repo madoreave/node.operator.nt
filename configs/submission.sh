@@ -1,6 +1,6 @@
 ELECTOR='Ef8zMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzM0vF'
 CONFIRM_AMOUNT='1.0'
-SUBMISSION_CHECK=50000
+SUBMISSION_CHECK='50000'
 
 mytonctrl <<< "vas validator_wallet_001" > ~/node.operator.nt/logs/vas_validator_wallet_001
 cat ~/node.operator.nt/logs/vas_validator_wallet_001 | grep "minutes ago" > ~/node.operator.nt/logs/vas_validator_wallet_001_1
@@ -16,7 +16,7 @@ cat ~/node.operator.nt/logs/vas_validator_wallet_001 | grep "8 hours ago" >> ~/n
 IN='<<<'
 OUT='>>>'
 n=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | wc -l) 
-NANO=1000000000
+NANO='1000000000'
 for (( i = 1; i <= n; i++ ))
 do
 CHECK_IN_OUT=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $4}' | sed -r 's/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g')
@@ -36,7 +36,7 @@ if [ "$STAKE_SUBMITTED" == 1 ]; then
   CHECK_IN_OUT=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $4}' | sed -r 's/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g')
   CHECK_ELECTOR=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $6}')
   STAKE=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $5}') && STAKE=${STAKE%.*}
-    if [ "$CHECK_ELECTOR" = "$ELECTOR" ] && [ "$CHECK_IN_OUT" = "$OUT" ] && [ "$STAKE" > "$SUBMISSION_CHECK" ]; then
+    if [ "$CHECK_ELECTOR" = "$ELECTOR" ] && [ "$CHECK_IN_OUT" = "$OUT" ] && [ "$STAKE" -gt "$SUBMISSION_CHECK" ]; then
          STAKE=$((STAKE * NANO))
          CHECK_ELECTION_SUBMISSION=$STAKE
          
