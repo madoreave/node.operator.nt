@@ -12,10 +12,11 @@ NANO='1000000000'
   CHECK_ELECTOR=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $6}')
   STAKE=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $5}'); STAKE=${STAKE%.*}
     if [ "$CHECK_ELECTOR" = "$ELECTOR" ] && [ "$CHECK_IN_OUT" = "$OUT" ] && [ "$STAKE" -gt "$SUBMISSION_CHECK" ]; then
-         STAKE=$((STAKE * NANO));
-         CHECK_ELECTION_SUBMISSION=$STAKE;
+         STAKE=$((STAKE * NANO))
+         CHECK_ELECTION_SUBMISSION=$STAKE
     fi
-                    }
+  done
+}
 
 ELECTOR='Ef8zMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzM0vF'
 CONFIRM_AMOUNT='1.0'
