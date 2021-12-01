@@ -15,7 +15,7 @@ NANO='1000000000'
          STAKE=$((STAKE * NANO))
          CHECK_ELECTION_SUBMISSION=$STAKE
     fi
-}
+                    }
 
 ELECTOR='Ef8zMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzM0vF'
 CONFIRM_AMOUNT='1.0'
