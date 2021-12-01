@@ -21,7 +21,7 @@ for (( i = 1; i <= n; i++ ))
 do
 CHECK_IN_OUT=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $4}' | sed -r 's/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g')
 CHECK_ELECTOR=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $6}')
-TX_AMOUNT=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $5}')
+TX_AMOUNT=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $5}') && 
 
 if [ "$CHECK_ELECTOR" = "$ELECTOR" ] && [ "$CHECK_IN_OUT" = "$IN" ] && [ "$TX_AMOUNT" = "$CONFIRM_AMOUNT" ]; then
      STAKE_SUBMITTED=1
@@ -35,7 +35,7 @@ if [ "$STAKE_SUBMITTED" == 1 ]; then
   do
   CHECK_IN_OUT=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $4}' | sed -r 's/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g')
   CHECK_ELECTOR=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $6}')
-  TX_AMOUNT=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $5}')
+  STAKE=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $5}') && STAKE=${STAKE%.*}
     if [ "$CHECK_ELECTOR" = "$ELECTOR" ] && [ "$CHECK_IN_OUT" = "$OUT" ] && [ "$TX_AMOUNT" > "$SUBMISSION_CHECK" ]; then
          TX_AMOUNT=$((TX_AMOUNT * NANO))
          CHECK_ELECTION_SUBMISSION=$TX_AMOUNT
