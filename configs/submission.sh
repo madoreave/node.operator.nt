@@ -37,7 +37,6 @@ if [ "$STAKE_SUBMITTED" == 1 ]; then
   CHECK_ELECTOR=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $6}')
   TX_AMOUNT=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $5}')
     if [ "$CHECK_ELECTOR" = "$ELECTOR" ] && [ "$CHECK_IN_OUT" = "$OUT" ] && [ "$TX_AMOUNT" > "$SUBMISSION_CHECK" ]; then
-         TX_AMOUNT=${TX_AMOUNT%.*}
          TX_AMOUNT=$((TX_AMOUNT * NANO))
          CHECK_ELECTION_SUBMISSION=$TX_AMOUNT
          
