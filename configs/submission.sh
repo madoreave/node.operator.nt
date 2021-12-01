@@ -14,6 +14,7 @@ NANO='1000000000'
     if [ "$CHECK_ELECTOR" = "$ELECTOR" ] && [ "$CHECK_IN_OUT" = "$OUT" ] && [ "$STAKE" -gt "$SUBMISSION_CHECK" ]; then
          STAKE=$((STAKE * NANO))
          CHECK_ELECTION_SUBMISSION=$STAKE
+         echo $CHECK_ELECTION_SUBMISSION
     fi
   done
 }
