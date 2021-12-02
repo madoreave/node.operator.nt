@@ -1,5 +1,4 @@
 #!/bin/bash
-crontab -r
 mytonctrl <<< "set stake 0" && mytonctrl <<< "ve"
 sleep 10
 BALANCE=$(mytonctrl <<< wl | grep validator_wallet_001 | awk '{print $3}')
@@ -11,4 +10,3 @@ echo $STAKE
 mytonctrl <<< "set stake $STAKE"
 mytonctrl <<< ve
 mytonctrl <<< "set stake 0"
-crontab ~/node.operator.nt/configs/crontab.config
