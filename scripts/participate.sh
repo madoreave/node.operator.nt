@@ -1,6 +1,6 @@
 #!/bin/bash
 mytonctrl <<< "set stake 0" && mytonctrl <<< "ve"
-sleep 10
+sleep 20
 BALANCE=$(mytonctrl <<< wl | grep validator_wallet_001 | awk '{print $3}')
 BALANCE=${BALANCE%.*}
 echo $BALANCE
