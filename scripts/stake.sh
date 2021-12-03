@@ -15,4 +15,3 @@ if [ ${CURRENT_UNIXTIME} -gt $((${CURRENT_ELECTION_SINCE_UNIXTIME} + 1200)) -a $
     fi
 fi
 sleep 5
-crontab ~/node.operator.nt/configs/crontab.config
