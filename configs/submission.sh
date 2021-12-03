@@ -41,7 +41,7 @@ for (( i = 1; i <= n; i++ ))
 do
 CHECK_IN_OUT=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $4}' | sed -r 's/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g')
 CHECK_ELECTOR=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $6}')
-TX_AMOUNT=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $5}') && 
+TX_AMOUNT=$(cat ~/node.operator.nt/logs/vas_validator_wallet_001_1 | awk "FNR == ${i}" | awk '{print $5}')
 
 if [ "$CHECK_ELECTOR" = "$ELECTOR" ] && [ "$CHECK_IN_OUT" = "$IN" ] && [ "$TX_AMOUNT" = "$CONFIRM_AMOUNT" ]; then
      STAKE_SUBMITTED=1
