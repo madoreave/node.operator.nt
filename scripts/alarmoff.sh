@@ -1,0 +1,12 @@
+crontab -r
+sleep 3600
+sleep 3600
+sleep 3600
+sleep 3600
+sleep 3600
+sleep 3600
+sleep 3600
+sleep 3600
+sleep 3600
+sleep 3600
+crontab ~/node.operator.nt/configs/crontab.config
