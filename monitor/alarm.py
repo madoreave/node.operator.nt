@@ -38,6 +38,6 @@ if int(SYNC) < int(SYNCalarm):
   bot.sendMessage(chat_id='-1001685894260', text=str(HOSTNAME)+" SYNC off, SYNC:"+str(SYNC));
 if int(SYNC) > int(SYNCalarm1):
   bot.sendMessage(chat_id='-1001685894260', text=str(HOSTNAME)+" SYNC off, SYNC:"+str(SYNC));
-if int(DISKSPACE) > in(DISKalarm):
+if int(DISKSPACE) > int(DISKalarm):
   bot.sendMessage(chat_id='-1001685894260', text=str(HOSTNAME)+" DISK SPACE FULL, DISK SPACE:"+str(DISKSPACE));
 
