@@ -28,7 +28,7 @@ DISKSPACE = subprocess.check_output("tail -n 1 ~/node.operator.nt/logs/election.
 ERROR_TIME = datetime.utcfromtimestamp(int(ERROR_TIME_UNIX)).strftime('%Y-%m-%d %H:%M:%S')
 SYNCalarm = "-100"
 SYNCalarm1 = 0
-DISKalarm = 50
+DISKalarm = 80
 
 if int(VALIDATION) == 0:
   bot.sendMessage(chat_id='-1001685894260', text=str(HOSTNAME)+" Not Validating "+str(ERROR_TIME));
