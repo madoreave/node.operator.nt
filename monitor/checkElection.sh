@@ -4,6 +4,7 @@ username=$(whoami)
 hostname=$(hostname -s)
 
 diskspace=$(df -k / | awk  'FNR == 2 {print $5}' | tr -d '%')
+diskspace=$(echo " DISKSPACE: ${diskspace};")
 . ~/node.operator.nt/configs/scripts.config
 
 current_time=$(echo " CURRENT_TIME: ${CURRENT_UNIXTIME};")
