@@ -3,6 +3,7 @@
 username=$(whoami)
 hostname=$(hostname -s)
 
+diskspace=$(df -k / | awk  'FNR == 2 {print $5}' | tr -d '%')
 . ~/node.operator.nt/configs/scripts.config
 
 current_time=$(echo " CURRENT_TIME: ${CURRENT_UNIXTIME};")
@@ -43,4 +44,4 @@ if [ ${validation_condition} -eq 0 -o ${election_condition} -eq 0 ]; then
     echo $validation $election $current_time >> ~/node.operator.nt/logs/election_err.log
 fi
 
-echo $validation $election $current_time $election_start_time $election_end_time >> ~/node.operator.nt/logs/election.log
+echo $validation $election $current_time $election_start_time $election_end_time $diskspace >> ~/node.operator.nt/logs/election.log
