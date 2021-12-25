@@ -23,7 +23,7 @@ VALIDATION = subprocess.check_output("tail -n 1 ~/node.operator.nt/logs/election
 ELECTION = subprocess.check_output("tail -n 1 ~/node.operator.nt/logs/election.log | grep -oP '(?<=ELECTION_STATUS: )[0-9]'",shell=True);
 ERROR_TIME_UNIX = subprocess.check_output("tail -n 1 ~/node.operator.nt/logs/election.log | grep -oP '(?<=CURRENT_TIME).*' | awk '{print $2}' | tr -d ';'",shell=True);
 SYNC=subprocess.check_output("~/node.operator.nt/scripts/checkSync.sh| grep TIME_DIFF | awk '{print $4}' | tr '[:upper:]' '[:lower:]'",shell=True);
-DISKSPACE = subprocess.check_output("tail -n 1 ~/node.operator.nt/logs/election.log | grep -oP '(?<=DISKSPACE: )[0-9]'",shell=True);
+DISKSPACE = subprocess.check_output("tail -n 1 ~/node.operator.nt/logs/election.log | awk '{print $12}'| tr -d ';'",shell=True);
 
 ERROR_TIME = datetime.utcfromtimestamp(int(ERROR_TIME_UNIX)).strftime('%Y-%m-%d %H:%M:%S')
 SYNCalarm = "-100"
