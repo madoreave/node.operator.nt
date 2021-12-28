@@ -4,7 +4,7 @@ sleep 20
 BALANCE=$(mytonctrl <<< wl | grep validator_wallet_001 | awk '{print $3}')
 BALANCE=${BALANCE%.*}
 echo $BALANCE
-RAN_DEDUCT=$[((RANDOM % 5)) + 3]
+RAN_DEDUCT=$[((RANDOM % 7)) + 2]
 STAKE=$((BALANCE - RAN_DEDUCT))
 echo $STAKE
 MIN_STAKE='250000'
