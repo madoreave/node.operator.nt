@@ -31,13 +31,13 @@ SYNCalarm1 = 0
 DISKalarm = 80
 
 if int(VALIDATION) == 0:
-  bot.sendMessage(chat_id='-1001685894260', text=str(HOSTNAME)+" Not Validating "+str(ERROR_TIME));
+  bot.sendMessage(chat_id='-1001635453336', text=str(HOSTNAME)+" Not Validating "+str(ERROR_TIME));
 if int(ELECTION) == 0:
-  bot.sendMessage(chat_id='-1001225148721', text=str(HOSTNAME)+" Not in Election "+str(ERROR_TIME));
+  bot.sendMessage(chat_id='-1001786245880', text=str(HOSTNAME)+" Not in Election "+str(ERROR_TIME));
 if int(SYNC) < int(SYNCalarm):
-  bot.sendMessage(chat_id='-1001685894260', text=str(HOSTNAME)+" SYNC off, SYNC:"+str(SYNC));
+  bot.sendMessage(chat_id='-1001635453336', text=str(HOSTNAME)+" SYNC off, SYNC:"+str(SYNC));
 if int(SYNC) > int(SYNCalarm1):
-  bot.sendMessage(chat_id='-1001685894260', text=str(HOSTNAME)+" SYNC off, SYNC:"+str(SYNC));
+  bot.sendMessage(chat_id='-1001635453336', text=str(HOSTNAME)+" SYNC off, SYNC:"+str(SYNC));
 if int(DISKSPACE) > int(DISKalarm):
-  bot.sendMessage(chat_id='-1001685894260', text=str(HOSTNAME)+" DISK SPACE FULL, DISK SPACE:"+str(DISKSPACE));
+  bot.sendMessage(chat_id='-1001635453336', text=str(HOSTNAME)+" DISK SPACE FULL, DISK SPACE:"+str(DISKSPACE));
 
