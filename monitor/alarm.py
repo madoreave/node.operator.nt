@@ -10,7 +10,7 @@ from random import randint
 
 sleep(randint(1,30))
 
-my_token = '1503237112:AAGQMIrsK_dJpmrp7ulET4g1b15E6rcXs5g'
+my_token = '5037846764:AAEa4biCfEFPW9uRp9bV7mZleuxQa_O23yg'
 bot = telegram.Bot(token = my_token)
 HOSTNAME = subprocess.check_output("tail -n 1 ~/serverno",shell=True)
 
